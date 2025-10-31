@@ -56,6 +56,10 @@ COPY --from=ta-lib-builder /usr/local /usr/local
 WORKDIR /app
 COPY --from=backend-builder /app/nofx .
 
+# 复制配置文件示例并创建配置文件
+COPY --from=backend-builder /app/config.json.example .
+RUN cp config.json.example config.json
+
 # 创建必要的目录
 RUN mkdir -p /app/decision_logs
 
