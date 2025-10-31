@@ -43,6 +43,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
+COPY config.json.example config.json
 RUN CGO_ENABLED=1 GOOS=linux go build -trimpath -ldflags="-s -w" -o nofx .
 
 # ──────────────────────────────────────────────────────────────
