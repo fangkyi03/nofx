@@ -1,9 +1,15 @@
 # NOFX Trading Bot - Main Dockerfile
 # This Dockerfile builds the backend Go application with TA-Lib support
 # ═══════════════════════════════════════════════════════════════
+# 
+# 如果遇到镜像拉取失败，可以尝试以下解决方案：
+# 1. 使用不同的镜像仓库：docker pull --platform linux/amd64 alpine:3.19
+# 2. 配置 Docker 镜像加速器
+# 3. 重试构建命令：docker build --no-cache --pull -f Dockerfile -t your-image .
+# ═══════════════════════════════════════════════════════════════
 
 ARG GO_VERSION=1.25-alpine
-ARG ALPINE_VERSION=latest
+ARG ALPINE_VERSION=3.19
 ARG TA_LIB_VERSION=0.4.0
 
 # ──────────────────────────────────────────────────────────────
