@@ -246,13 +246,13 @@ func (at *AutoTrader) runCycle() error {
 	}
 
 	// 3. 收集交易上下文
-	ctx, err := at.buildTradingContext()
-	if err != nil {
-		record.Success = false
-		record.ErrorMessage = fmt.Sprintf("构建交易上下文失败: %v", err)
-		at.decisionLogger.LogDecision(record)
-		return fmt.Errorf("构建交易上下文失败: %w", err)
-	}
+	// ctx, err := at.buildTradingContext()
+	// if err != nil {
+	// 	record.Success = false
+	// 	record.ErrorMessage = fmt.Sprintf("构建交易上下文失败: %v", err)
+	// 	at.decisionLogger.LogDecision(record)
+	// 	return fmt.Errorf("构建交易上下文失败: %w", err)
+	// }
 
 	// 保存账户状态快照
 	record.AccountState = logger.AccountSnapshot{
